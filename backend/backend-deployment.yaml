@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: "docker.io/lamooon/goorm-final"
+          image: public.ecr.aws/k7b3l8g3/goorm-final:latest
           imagePullPolicy: IfNotPresent
       restartPolicy: Always
       

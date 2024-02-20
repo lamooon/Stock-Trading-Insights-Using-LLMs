@@ -35,6 +35,11 @@ htmlFiles.forEach(file => {
 
 app.use('/', router);
 
+// Make sure Github Actions have worked
+app.get('/version', (req, res) => {
+    res.send('1'); //change this version name once new version has been deployed
+})
+
 app.listen(port, function () {
     console.log(`Listening at port ${port}`);
 });

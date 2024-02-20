@@ -1,13 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: Title
+  name: backend
 spec:
   selector:
-    app: Title
+    app: backend
   ports:
     - protocol: TCP
       port: 80
       targetPort: 8080
-  type: NodePort
+  type: ClusterIP
+
   

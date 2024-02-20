@@ -1,15 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: goorm-ingress
+  name: goorm-alb
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    - alb.ingress.kubernetes.io/scheme: internet-facing
+    - alb.ingress.kubernetes.io/target-type: ip
+    - alb.ingress.kubernetes.io/group.name: node-1
+    - alb.ingress.kubernetes.io/group.order: '1'
 spec:
   ingressClassName: nginx
   rules:
     - http:
         paths:
-          - path: /api
+          - path: /
             pathType: Prefix
             backend:
               service:
